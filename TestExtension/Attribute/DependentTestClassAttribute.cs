@@ -1,6 +1,9 @@
-﻿namespace TestExtension
+﻿using System;
+
+namespace TestExtension
 {
-	public class DependentTestClassAttribute : System.Attribute
+	[AttributeUsage(AttributeTargets.Class)]
+	public sealed class DependentTestClassAttribute : Attribute
 	{
 	}
 }

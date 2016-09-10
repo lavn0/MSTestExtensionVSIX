@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.TestWindow.Extensibility;
 
 namespace TestExtension
@@ -26,6 +27,14 @@ namespace TestExtension
 		{
 			this.serviceProvider = serviceProvider;
 			this.logger = logger;
+
+			var sbm = ServiceProvider.GlobalProvider.GetService(typeof(SVsSolutionBuildManager)) as IVsSolutionBuildManager2;
+			if (sbm != null)
+			{
+				var solutionEventListener = new SolutionEventListener(this.serviceProvider);
+				uint updateSolutionEventsCookie;
+				sbm.AdviseUpdateSolutionEvents(solutionEventListener, out updateSolutionEventsCookie);
+			}
 		}
 	}
 }

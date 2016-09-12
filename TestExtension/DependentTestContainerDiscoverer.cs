@@ -33,7 +33,7 @@ namespace TestExtension
 					Debug.WriteLine($"Output File Found. Path= '{outputPath}'");
 				}
 
-				return Enumerable.Empty<ITestContainer>();
+				return outputPaths.Select(file => new DependentTestContainer(this, file)).ToList();
 			}
 		}
 

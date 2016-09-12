@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Attribute\DependentTestClassAttribute.cs" />
     <Compile Include="Attribute\DependentTestMethodAttribute.cs" />
+    <Compile Include="DependentTestContainer.cs" />
     <Compile Include="DependentTestContainerDiscoverer.cs" />
     <Compile Include="DependentTestDiscoverer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

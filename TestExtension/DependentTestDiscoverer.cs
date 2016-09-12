@@ -19,7 +19,7 @@ namespace TestExtension
 			GetTests(sources, discoverySink);
 		}
 
-		public static List<TestCase> GetTests(
+		internal static List<TestCase> GetTests(
 			IEnumerable<string> sources,
 			ITestCaseDiscoverySink discoverySink)
 		{
